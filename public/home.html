@@ -101,6 +101,7 @@
         .overview h3 {
             margin-bottom: 15px;
             font-size: 24px;
+            align: center
         }
         .overview p {
             margin-bottom: 10px;
@@ -140,15 +141,17 @@
             <form id="senderForm" action="#" method="POST">
                 <label for="sender-name">Your Name</label>
                 <input type="text" id="sender-name" name="sender-name" placeholder="Enter your name" required>
+
+                <label for="Phone-Number">Phone Number</label>
+                <input type="tel" id="Phone-Number" name="Phone-Number" pattern="[0-9]{10}" required>
                 
-                <label for="parcel-details">Parcel Details</label>
-                <textarea id="parcel-details" name="parcel-details" rows="4" placeholder="Describe your parcel" required></textarea>
+                <label for="parcel-weight">Weight</label>
+                <input type="text" id="parcel-weight" name="parcel-weight" placeholder="Enter Parcel Weight" required>
                 
-                <label for="pickup-location">Pickup Location</label>
-                <input type="text" id="pickup-location" name="pickup-location" placeholder="Pickup address" required>
+                <label for="parcel-type">Parcel-Type</label>
+                <input type="text" id="parcel-type" name="parcel-type" placeholder="What Type Of Parcel Is It ?" required>
                 
-                <label for="delivery-location">Delivery Location</label>
-                <input type="text" id="delivery-location" name="delivery-location" placeholder="Delivery address" required>
+            
                 
                 <button type="submit">Submit Parcel Details</button>
             </form>
@@ -157,14 +160,28 @@
         <!-- Traveler Form Section -->
         <div id="traveler" class="form-section">
             <h3>Traveler PNR Verification</h3>
-            <form id="travelerForm" action="#" method="POST">
-                <label for="pnr">PNR Number</label>
-                <input type="text" id="pnr" name="pnr" placeholder="Enter your PNR number" required>
+            <form id="travelerForm" action="submit_traveler_info.php" method="POST">
 
-                <label for="more-details">Additional Details</label>
-                <textarea id="more-details" name="more-details" rows="4" placeholder="Enter any additional details" required></textarea>
+            <label for="traveler-name">Your Name</label>
+            <input type="text" id="traveler-name" name="traveler-name" placeholder="Enter your name (It should be same as your tickit name)" required>
+            <!-- PNR Number Field -->
+            <label for="pnrNumber">PNR Number</label>
+            <input type="number" id="pnrNumber" name="pnrNumber" required>
+    
+            <!-- Phone Number Field -->
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+    
+            <!-- Aadhar Number Field -->
+            <label for="aadharNumber">Aadhar Number</label>
+            <input type="number" id="aadharNumber" name="aadharNumber" pattern="[0-9]{12}" required>
+    
+            <!-- Disclaimer for Aadhar Number -->
+            <div class="disclaimer">
+                <strong>Disclaimer:</strong> We require your Aadhar number for identity verification and security purposes. Your information will be kept confidential and used solely for this purpose.
+            </div>
                 
-                <button type="submit">Submit PNR</button>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
