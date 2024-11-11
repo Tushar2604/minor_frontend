@@ -1,28 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import './css/styles.css';
 
-function Login() {
-    const navigate = useNavigate();
-
-    const handleLogin = (event) => {
-        event.preventDefault();
-        navigate('/home');
-    }
-
-    return (
-        <div className="form-container">
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <label htmlFor="username">Username</label>
-                <input type="text" id="username" name="username" required />
-
-                <label htmlFor="password">Password</label>
-                <input type="password" id="password" name="password" required />
-
-                <input type="submit" value="Login" />
-            </form>
-        </div>
-    );
-}
+const Login = () => (
+    <div className="login-container">
+        <h1>TrainCourier</h1>
+        <h2>Login</h2>
+        <form>
+            <input type="email" name="email" placeholder="Email" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+    </div>
+);
 
 export default Login;
