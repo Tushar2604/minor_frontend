@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>TrainCourier - Homepage</title>
     <link rel="stylesheet" href="\src\css\styles.css">
+    
 </head>
 <body>
 
@@ -37,7 +38,7 @@
         <!-- Sender Form Section -->
         <div id="sender" class="form-section">
             <h3>Parcel Sender Details</h3>
-            <form id="senderForm" action="#" method="POST">
+            <form id="senderForm" action="trainsearch.html" method="POST" onsubmit="handleTravelerSubmit(event)">
                 <label for="sender-name">Your Name</label>
                 <input type="text" id="sender-name" name="sender-name" placeholder="Enter your name" required>
 
@@ -49,41 +50,36 @@
                 
                 <label for="parcel-type">Parcel-Type</label>
                 <input type="text" id="parcel-type" name="parcel-type" placeholder="What Type Of Parcel Is It ?" required>
-                
-            
-                
+
                 <button type="submit">Submit Parcel Details</button>
             </form>
         </div>
 
         <!-- Traveler Form Section -->
-        <div id="traveler" class="form-section">
-            <h3>Traveler PNR Verification</h3>
-            <form id="travelerForm" action="submit_traveler_info.php" method="POST">
+        <!-- Traveler Form Section -->
+<div id="traveler" class="form-section">
+    <h3>Traveler PNR Verification</h3>
+    <form id="travelerForm" action="tickit_upload.html" method="POST" onsubmit="handleTravelerSubmit(event)">
+        <label for="traveler-name">Your Name</label>
+        <input type="text" id="traveler-name" name="traveler-name" placeholder="Enter your name (It should be same as your tickit name)" required>
 
-            <label for="traveler-name">Your Name</label>
-            <input type="text" id="traveler-name" name="traveler-name" placeholder="Enter your name (It should be same as your tickit name)" required>
-            <!-- PNR Number Field -->
-            <label for="pnrNumber">PNR Number</label>
-            <input type="number" id="pnrNumber" name="pnrNumber" required>
-    
-            <!-- Phone Number Field -->
-            <label for="phoneNumber">Phone Number</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
-    
-            <!-- Aadhar Number Field -->
-            <label for="aadharNumber">Aadhar Number</label>
-            <input type="number" id="aadharNumber" name="aadharNumber" pattern="[0-9]{12}" required>
-    
-            <!-- Disclaimer for Aadhar Number -->
-            <div class="disclaimer">
-                <strong>Disclaimer:</strong> We require your Aadhar number for identity verification and security purposes. Your information will be kept confidential and used solely for this purpose.
-            </div>
-                
-                <button type="submit">Submit</button>
-            </form>
+        <label for="pnrNumber">PNR Number</label>
+        <input type="number" id="pnrNumber" name="pnrNumber" required>
+
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+
+        <label for="aadharNumber">Aadhar Number</label>
+        <input type="number" id="aadharNumber" name="aadharNumber" pattern="[0-9]{12}" required>
+
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> We require your Aadhar number for identity verification and security purposes. Your information will be kept confidential and used solely for this purpose.
         </div>
-    </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
 
     <script>
         // Function to switch between sections
@@ -94,8 +90,19 @@
             });
             document.getElementById(sectionId).classList.add('active');
         }
+       
+       function handleTravelerSubmit(event) {
+    event.preventDefault(); 
 
-        // Function to simulate form submission and redirect to homepage
+   
+ 
+    window.location.href = 'tickit_upload.html';
+}
+
+document.getElementById('travelerForm').addEventListener('submit', handleTravelerSubmit);
+
+
+        
         function handleFormSubmit(event, formId) {
             event.preventDefault(); // Prevent the default form submission
 
@@ -118,5 +125,3 @@
 
 </body>
 </html>
-
-
